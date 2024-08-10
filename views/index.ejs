@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweets Page</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+    /* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #141111;
+    border: 2px solid #3498db;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    
+}
+
+h2 {
+    color: #34495e;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.5rem;
+}
+
+h4 {
+    color: #7f8c8d;
+    margin: 5px 0 20px 0;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.tweet {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.tweet:hover {
+    transform: scale(1.05);
+    background-color: #d0e8f2;
+}
+
+a {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+    margin-right: 15px;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #e74c3c;
+}
+
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+button:focus {
+    outline: none;
+}
+
+a.add-new-tweet {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.2s, transform 0.2s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+a.add-new-tweet:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+.opt{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+}
+
+
+
+
+
+</style>
+<body>
+    
+<h1>Tweets</h1>
+<div class="container">
+    <% for(let tweet of tweets){ %>
+    <div class="tweet">
+        <h2><%= tweet.content %></h2>
+        <h4>by <%= tweet.user %></h4>
+    </div>
+    <div class="opt" >
+        <a href="/tweets/<%= tweet.id %>">View in detail</a>
+        <a href="/tweets/<%= tweet.id %>/edit">Edit <i class="fa-sharp-duotone fa-solid fa-pencil"></i> </a>
+        <form action="/tweets/<%= tweet.id %>?_method=DELETE" method="post">
+            <button> <i class="fa-solid fa-trash"></i> </button>
+        </form>
+    </div>
+  
+    <% } %>
+ 
+</div>
+   <a href="/tweets/new" class="add-new-tweet">Add New Tweet</a>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Details</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Tweet details styles */
+.tweet-details {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #3498db;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h5 {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+
+    </style>
+</head>
+<body>
+
+   <div class="tweet-details">
+       <h2><b>Tweet:</b> <%= tweet.content %></h2>
+       <p><b>User:</b> <%= tweet.user %></p>
+       <hr>
+       <h5>ID from which it is posted: <%= tweet.id %></h5>
+   </div>
+
+</body>
+</html>
